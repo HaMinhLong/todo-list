@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const getStaticPaths = async () => {
   const { data } = await axios.get(
-    "https://jsonplaceholder.typicode.com/users"
+    "https://jsonplaceholder.typicode.com/comments"
   );
 
   const paths = data.map((dt) => {
@@ -24,7 +24,7 @@ export const getStaticProps = async (context) => {
   const id = context.params.id;
 
   const { data } = await axios.get(
-    `https://jsonplaceholder.typicode.com/users/${id}`
+    `https://jsonplaceholder.typicode.com/comments/${id}`
   );
 
   return {
@@ -42,7 +42,7 @@ const DetailsPage = ({ data }) => {
       </Head>
       <p>Name: {data.name}</p>
       <p>Email: {data.email}</p>
-      <p>Website: {data.website}</p>
+      <p>Website: {data.body}</p>
     </Layout>
   );
 };

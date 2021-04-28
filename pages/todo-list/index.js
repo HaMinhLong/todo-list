@@ -7,7 +7,7 @@ import styles from "../../styles/TodoList.module.css";
 
 export const getStaticProps = async () => {
   const { data } = await axios.get(
-    "https://jsonplaceholder.typicode.com/users"
+    "https://jsonplaceholder.typicode.com/comments"
   );
 
   return {
